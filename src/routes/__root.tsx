@@ -84,10 +84,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Nurturely is a unified family support platform: AI parenting guidance, a parent community, therapist directory, childcare booking, and backup care — your village starts here.",
+          "Nurturely is a unified family support platform: AI parenting guidance, a parent community, therapist directory, childcare booking, and backup care — an AI family ecosystem.",
       },
       { name: "author", content: "Nurturely" },
-      { property: "og:title", content: "Nurturely — Your village starts here" },
+      { property: "og:title", content: "Nurturely — An AI Family Ecosystem" },
       {
         property: "og:description",
         content:

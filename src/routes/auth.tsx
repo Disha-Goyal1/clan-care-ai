@@ -132,7 +132,7 @@ function AuthPage() {
             </h1>
             <p className="mt-1 text-sm text-muted-foreground">
               {mode === "signup"
-                ? "Your village starts here. It takes less than a minute."
+                ? "Your AI family ecosystem starts here. It takes less than a minute."
                 : "Sign in to continue to your family dashboard."}
             </p>
 
