@@ -20,13 +20,16 @@ import { useQueryClient } from "@tanstack/react-query";
 
 const navItems = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard, exact: true },
-  { to: "/dashboard/ai-support", label: "AI Support", icon: Sparkles },
-  { to: "/dashboard/common-ground", label: "Common Ground", icon: HandHeart },
-  { to: "/dashboard/community", label: "Parent Community", icon: Users },
-  { to: "/dashboard/therapists", label: "Therapists", icon: Stethoscope },
-  { to: "/dashboard/childcare", label: "Childcare", icon: Baby },
-  { to: "/dashboard/sos", label: "SOS Childcare", icon: LifeBuoy },
-  { to: "/dashboard/settings", label: "Settings", icon: Settings },
+] as const;
+
+const upcomingItems = [
+  { label: "AI Support", icon: Sparkles },
+  { label: "Common Ground", icon: HandHeart },
+  { label: "Parent Community", icon: Users },
+  { label: "Therapists", icon: Stethoscope },
+  { label: "Childcare", icon: Baby },
+  { label: "SOS Childcare", icon: LifeBuoy },
+  { label: "Settings", icon: Settings },
 ] as const;
 
 export interface SessionProfile {
@@ -100,6 +103,19 @@ export function DashboardShell({ children }: { children: ReactNode }) {
           </Link>
         );
       })}
+      {upcomingItems.map((item) => (
+        <span
+          key={item.label}
+          className="flex cursor-default items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-sidebar-foreground/40"
+          title="Coming in a future stage"
+        >
+          <item.icon className="h-4 w-4 shrink-0" />
+          {item.label}
+          <span className="ml-auto rounded-full bg-sidebar-accent/50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-sidebar-foreground/60">
+            Soon
+          </span>
+        </span>
+      ))}
     </nav>
   );
 
@@ -186,8 +202,4 @@ export function DashboardShell({ children }: { children: ReactNode }) {
       </div>
     </div>
   );
-}
-
-export function useDashboardProfile() {
-  return null;
 }
