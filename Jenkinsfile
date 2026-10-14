@@ -41,7 +41,7 @@ pipeline {
 
         stage('Verify Deployment') {
             steps {
-                sh 'curl --fail --retry 5 --retry-delay 2 http://localhost:8081/'
+                sh 'curl --fail --retry 5 --retry-delay 2 http://localhost:8080/'
             }
         }
     }
