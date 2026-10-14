@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   Sparkles,
@@ -7,7 +7,6 @@ import {
   Stethoscope,
   Baby,
   LifeBuoy,
-  ArrowRight,
 } from "lucide-react";
 import { DashboardShell } from "@/components/DashboardShell";
 import { supabase } from "@/integrations/supabase/client";
@@ -25,37 +24,31 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
 
 const cards = [
   {
-    to: "/dashboard/ai-support",
     icon: Sparkles,
     title: "AI Support",
     description: "Ask a parenting question and get gentle, practical guidance.",
   },
   {
-    to: "/dashboard/common-ground",
     icon: HandHeart,
     title: "Common Ground",
     description: "Understand your child's world with age-aware insights.",
   },
   {
-    to: "/dashboard/community",
     icon: Users,
     title: "Parent Community",
     description: "Share, ask, and connect with parents who get it.",
   },
   {
-    to: "/dashboard/therapists",
     icon: Stethoscope,
     title: "Therapist Support",
     description: "Browse vetted family therapists and book appointments.",
   },
   {
-    to: "/dashboard/childcare",
     icon: Baby,
     title: "Childcare",
     description: "Find trusted childcare providers and manage bookings.",
   },
   {
-    to: "/dashboard/sos",
     icon: LifeBuoy,
     title: "SOS Childcare",
     description: "Set up your backup care chain for last-minute emergencies.",
@@ -100,22 +93,23 @@ function DashboardPage() {
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card) => (
-            <Link
-              key={card.to}
-              to={card.to}
-              className="group rounded-2xl border border-border/70 bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
+            <div
+              key={card.title}
+              className="rounded-2xl border border-border/70 bg-card p-6 shadow-sm"
             >
               <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/60 text-primary">
                 <card.icon className="h-5 w-5" />
               </span>
-              <h2 className="flex items-center gap-1.5 text-lg font-bold text-foreground">
+              <h2 className="flex items-center gap-2 text-lg font-bold text-foreground">
                 {card.title}
-                <ArrowRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
+                <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-muted-foreground">
+                  Next stage
+                </span>
               </h2>
               <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                 {card.description}
               </p>
-            </Link>
+            </div>
           ))}
         </div>
 
