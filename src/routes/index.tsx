@@ -15,13 +15,13 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nurturely — Your village starts here" },
+      { title: "Nurturely — An AI Family Ecosystem" },
       {
         name: "description",
         content:
           "Nurturely brings AI parenting support, a warm parent community, trusted therapists, and reliable childcare together in one place. Parenting wasn't meant to be done alone.",
       },
-      { property: "og:title", content: "Nurturely — Your village starts here" },
+      { property: "og:title", content: "Nurturely — An AI Family Ecosystem" },
       {
         property: "og:description",
         content:
@@ -150,7 +150,7 @@ function LandingPage() {
             Parenting wasn't meant to be done alone.
           </p>
           <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-foreground sm:text-6xl">
-            Your village starts here.
+            An AI Family Ecosystem.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             Nurturely brings everything a modern family needs into one calm place — AI parenting
